@@ -1,0 +1,13 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<span>Controller Generator</span>
+<ul>
+    <li><strong>Transient: </strong> @ViewBag.Transient.GetGuid()</li>
+    <li><strong>Scoped: </strong> @ViewBag.Scoped.GetGuid()</li>
+    <li><strong>Singleton: </strong> @ViewBag.Singleton.GetGuid()</li>
+</ul>

@@ -1,6 +1,6 @@
 # PPEDV ASP.NET Core 2.1 Training
 
-Voraussetzung:
+#### Voraussetzung:
 
   - Visual Studio 2017, Version 15.7.2
   - Visual Studio Code
@@ -10,15 +10,16 @@ In der Solution finden sich Beispiele zu den Modulen 1-10:
   - Setup & Tooling
   - Startup & Middleware (MiddlewareDemo)
   - Einführung in MVC (RazorPagesDemo, MvcDemo)
-  - Dependency Injection
+  - Dependency Injection (DependencyInjectionDemo)
   - Entity Framework Core
   - Schichtenarchitektur
   - REST APIs
   - Security
   - Front-End
+  - Hosting & Deployment
 
 #### Modul 1, Setup & Tooling
-Die folgenden Anweisungen auf der Console eingeben und ein erstes .Net Core 2.1 Programm erstellen:
+Die folgenden Anweisungen auf der Console eingeben, um ein erstes .Net Core 2.1 Programm zu erstellen:
 
   - dotnet
   - dotnet --version
