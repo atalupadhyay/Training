@@ -1,0 +1,8 @@
+﻿@model ErrorCustomViewModel
+
+<h1>Error Custom</h1>
+
+@if (!string.IsNullOrWhiteSpace(Model.Message))
+{
+    <h2 class="text-danger">@Model.Message</h2>
+}

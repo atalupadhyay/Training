@@ -1,0 +1,33 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Tag Helper, ViewData, TempData, Cookies</h1>
+
+<h2>@ViewData["Message"]</h2>
+
+@if (TempData.Peek("Engine") == null)
+{
+    <h2>TempData wurde nicht gesetzt.</h2>
+}
+else
+{
+    <h2>TempData: @TempData.Peek("Engine")</h2>
+}
+
+
+Html Link
+<a href="/Home/About">About</a>
+
+<br />
+HTML Helper:
+@Html.ActionLink("About Helper", "/About")
+
+<br />
+<a asp-action="About" asp-controller="Home">About Seite</a>
+
+<br />
+Tag Helper: <email mail-to="Marketing"></email>
+
+

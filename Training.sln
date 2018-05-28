@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MiddlewareDemo", "Middlewar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorPagesDemo", "RazorPagesDemo\RazorPagesDemo.csproj", "{A888EEF6-FA54-48D6-B85D-654A46553791}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MvcDemo", "MvcDemo\MvcDemo.csproj", "{50927EE1-054A-46EB-A014-FF8371C49043}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{A888EEF6-FA54-48D6-B85D-654A46553791}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A888EEF6-FA54-48D6-B85D-654A46553791}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A888EEF6-FA54-48D6-B85D-654A46553791}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50927EE1-054A-46EB-A014-FF8371C49043}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50927EE1-054A-46EB-A014-FF8371C49043}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50927EE1-054A-46EB-A014-FF8371C49043}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50927EE1-054A-46EB-A014-FF8371C49043}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
