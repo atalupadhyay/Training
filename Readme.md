@@ -13,8 +13,8 @@ In der Solution finden sich Beispiele zu den Modulen 1-10:
   - Dependency Injection (DependencyInjectionDemo)
   - Entity Framework Core (EFDBFirstDemo, EFCodeFirstDemo)
   - Schichtenarchitektur (APIDemo)
-  - REST APIs (APIDemo)
-  - Security (APIDemo)
+  - REST APIs (APIDemo, APIDemo.Tests)
+  - Security (IdentityFrameworkDemo, APIDemo)
   - Front-End (SignalRDemo)
   - Hosting & Deployment
 
@@ -33,5 +33,5 @@ Die folgenden Anweisungen auf der Console eingeben, um ein erstes .Net Core 2.1 
   - type Program.cs
   - dotnet run
 
-
+  #### Modul 10, Hosting & Deployment
 

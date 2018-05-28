@@ -18,6 +18,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DependencyInjectionDemo", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SignalRDemo", "SignalRDemo\SignalRDemo.csproj", "{38CA11B0-C579-435F-9839-FD002A0C064B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "APIDemo", "APIDemo\APIDemo.csproj", "{3DF0DB18-1AC0-4810-BF83-44B12EF31669}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{38CA11B0-C579-435F-9839-FD002A0C064B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{38CA11B0-C579-435F-9839-FD002A0C064B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{38CA11B0-C579-435F-9839-FD002A0C064B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3DF0DB18-1AC0-4810-BF83-44B12EF31669}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3DF0DB18-1AC0-4810-BF83-44B12EF31669}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3DF0DB18-1AC0-4810-BF83-44B12EF31669}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3DF0DB18-1AC0-4810-BF83-44B12EF31669}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
