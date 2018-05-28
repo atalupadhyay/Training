@@ -1,18 +1,21 @@
 ﻿using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Http;
 using Microsoft.Extensions.DependencyInjection;
-using MiddlewareDemo.Helpers;
 
-namespace MiddlewareDemo
+namespace RazorPagesDemo
 {
     public class Startup
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
         {
+            app.UseMvc();
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -20,11 +23,8 @@ namespace MiddlewareDemo
 
             //app.Run(async (context) =>
             //{
-            //    await context.Response.WriteAsync("Hello PPEDV!");
+            //    await context.Response.WriteAsync("Hello World!");
             //});
-
-            app.UseHelloPpedv();
-            app.UseHelloPpedvClass();
         }
     }
 }
