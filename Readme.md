@@ -11,7 +11,7 @@ In der Solution finden sich Beispiele zu den Modulen 1-10:
   - Startup & Middleware (MiddlewareDemo)
   - Einführung in MVC (RazorPagesDemo, MvcDemo)
   - Dependency Injection (DependencyInjectionDemo)
-  - Entity Framework Core (EFDBFirstDemo, EFCodeFirstDemo)
+  - Entity Framework Core (EFDBFirstDemo, EFCodeFirstDemo=>APIDemo)
   - Schichtenarchitektur (APIDemo)
   - REST APIs (APIDemo, APIDemo.Tests, APIDemo.ClientConsole)
   - Security (IdentityFrameworkDemo, APIDemo)

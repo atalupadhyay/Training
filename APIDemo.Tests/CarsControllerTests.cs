@@ -24,7 +24,7 @@ namespace APIDemo.Tests
                 .Returns(GetCars);
 
             // Act
-            var ctrl = new CarsController(mockRepo.Object);
+            var ctrl = new CarsController(mockRepo.Object, null);
             var result = await ctrl.GetAllCars();
 
             // Assert
