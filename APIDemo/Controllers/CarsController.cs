@@ -13,7 +13,6 @@ using Microsoft.AspNetCore.JsonPatch;
 namespace APIDemo.Controllers
 {
     //[Produces("application/json")]
-    //[Authorize]
     [Route("api/[controller]")]
     [ApiController]
     public class CarsController : Controller

@@ -28,6 +28,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "APIDemo.WebClient", "APIDem
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EFDBFirstDemo", "EFDBFirstDemo\EFDBFirstDemo.csproj", "{6C725A51-20F4-4FBD-885F-830E713F01D6}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IdentityUIDemo", "IdentityUIDemo\IdentityUIDemo.csproj", "{E458D98E-2B9A-4970-8F2A-00DA68590E68}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -74,6 +76,10 @@ Global
 		{6C725A51-20F4-4FBD-885F-830E713F01D6}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C725A51-20F4-4FBD-885F-830E713F01D6}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C725A51-20F4-4FBD-885F-830E713F01D6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E458D98E-2B9A-4970-8F2A-00DA68590E68}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E458D98E-2B9A-4970-8F2A-00DA68590E68}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E458D98E-2B9A-4970-8F2A-00DA68590E68}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E458D98E-2B9A-4970-8F2A-00DA68590E68}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

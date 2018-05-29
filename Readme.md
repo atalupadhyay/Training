@@ -14,7 +14,7 @@ In der Solution finden sich Beispiele zu den Modulen 1-10:
   - Entity Framework Core (EFDBFirstDemo, EFCodeFirstDemo=>APIDemo)
   - Schichtenarchitektur (APIDemo)
   - REST APIs (APIDemo, APIDemo.Tests, APIDemo.ClientConsole)
-  - Security (IdentityFrameworkDemo, APIDemo)
+  - Security (IdentityUIDemo, APIDemo)
   - Front-End (SignalRDemo, APIDemo.ClientWeb)
   - Hosting & Deployment
 

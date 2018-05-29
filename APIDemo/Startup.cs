@@ -80,7 +80,7 @@ namespace APIDemo
                 });
             }
 
-            // Identity Framework
+            // Identity UI
             app.UseAuthentication();
 
             app.UseHttpsRedirection();
