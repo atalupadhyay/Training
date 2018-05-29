@@ -1,4 +1,5 @@
 ﻿using APIDemo.Models;
+using APIDemo.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -19,14 +20,16 @@ namespace APIDemo
 
         public IConfiguration Configuration { get; }
 
-        // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            // SQLServer DB
+            // SQLServer DB Provider
             services.AddDbContext<ApiDemoContext>(options =>
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+
+            // Service Registrierung
+            services.AddScoped<ICarsRepository, CarsRepository>(); // Jeder HTTP Request neue Instanz
 
             // Cors
             services.AddCors();
@@ -72,6 +75,9 @@ namespace APIDemo
                     ForwardedHeaders = ForwardedHeaders.XForwardedFor | ForwardedHeaders.XForwardedProto
                 });
             }
+
+            // Identity Framework
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
 
