@@ -13,9 +13,9 @@ In der Solution finden sich Beispiele zu den Modulen 1-10:
   - Dependency Injection (DependencyInjectionDemo)
   - Entity Framework Core (EFDBFirstDemo, EFCodeFirstDemo)
   - Schichtenarchitektur (APIDemo)
-  - REST APIs (APIDemo, APIDemo.Tests)
+  - REST APIs (APIDemo, APIDemo.Tests, APIDemo.ClientConsole)
   - Security (IdentityFrameworkDemo, APIDemo)
-  - Front-End (SignalRDemo)
+  - Front-End (SignalRDemo, APIDemo.ClientWeb)
   - Hosting & Deployment
 
 #### Modul 1, Setup & Tooling
