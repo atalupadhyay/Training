@@ -2,8 +2,8 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
-using APIDemo.Models;
 using Microsoft.EntityFrameworkCore;
+using APIDemo.Models;
 
 namespace APIDemo.Services
 {
@@ -15,16 +15,16 @@ namespace APIDemo.Services
         {
             _ctx = ctx;
 
-            //if (_ctx.Cars.Count() == 0)
-            //{
-            //    _ctx.Cars.Add(new Car
-            //    {
-            //        BrandName = BrandNames.DMC,
-            //        ModelName = "Delorian",
-            //        YearOfConstruction = 1985
-            //    });
-            //    _ctx.SaveChanges();
-            //}
+            if (_ctx.Cars.Count() == 0)
+            {
+                _ctx.Cars.Add(new Car
+                {
+                    BrandName = BrandNames.DMC,
+                    ModelName = "Delorian",
+                    YearOfConstruction = 1985
+                });
+                _ctx.SaveChanges();
+            }
         }
 
         public async Task<IEnumerable<Car>> GetAll()

@@ -1,6 +1,6 @@
-﻿using APIDemo.Models;
-using APIDemo.Services;
-using AutoMapper;
+﻿using System.Text;
+using System.Net;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -9,6 +9,11 @@ using Microsoft.AspNetCore.Mvc.Formatters;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Microsoft.IdentityModel.Tokens;
+using Microsoft.AspNetCore.Identity;
+using AutoMapper;
+using APIDemo.Models;
+using APIDemo.Services;
 
 namespace APIDemo
 {
@@ -23,6 +28,31 @@ namespace APIDemo
 
         public void ConfigureServices(IServiceCollection services)
         {
+            // JWT Security
+            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
+                .AddJwtBearer(options =>
+                {
+                    options.TokenValidationParameters = new TokenValidationParameters()
+                    {
+                        ValidateActor = true,
+                        ValidateAudience = true,
+                        ValidateLifetime = true,
+                        ValidateIssuerSigningKey = true,
+                        ValidIssuer = Configuration["Issuer"],
+                        ValidAudience = Configuration["Audience"],
+                        IssuerSigningKey =
+                            new SymmetricSecurityKey(
+                                Encoding.UTF8.GetBytes(Configuration["SigningKey"]))
+                    };
+                });
+
+            // Identity
+            services.AddIdentity<IdentityUser, IdentityRole>()
+                .AddEntityFrameworkStores<ApiDemoContext>()
+                .AddDefaultUI();
+
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/Account/LogIn");
+
             // SQLServer DB Provider
             services.AddDbContext<ApiDemoContext>(options =>
             {

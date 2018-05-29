@@ -1,43 +1,23 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using APIDemo.Models;
 using Microsoft.AspNetCore.Authorization;
-using APIDemo.Services;
-using AutoMapper;
-using APIDemo.Dtos;
 using Microsoft.AspNetCore.JsonPatch;
+using AutoMapper;
+using APIDemo.Models;
+using APIDemo.Services;
+using APIDemo.Dtos;
 
 namespace APIDemo.Controllers
 {
     //[Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
+    [Authorize(AuthenticationSchemes = "Bearer")]
     public class CarsController : Controller
     {
         private readonly ICarsRepository _repo;
         private readonly IMapper _mapper;
-        #region constructorOhneRepo
-        //private readonly ApiDemoContext _ctx;
-
-        //public CarsController(ApiDemoContext ctx)
-        //{
-        //    _ctx = ctx;
-
-        //    //if (_ctx.Cars.Count() == 0)
-        //    //{
-        //    //    _ctx.Cars.Add(new Car
-        //    //    {
-        //    //        BrandName = BrandNames.DMC,
-        //    //        ModelName = "Delorian",
-        //    //        YearOfConstruction = 1985
-        //    //    });
-        //    //    _ctx.SaveChanges();
-        //    //}
-        //}
-        #endregion
 
         public CarsController(ICarsRepository repo, IMapper mapper)
         {
@@ -140,11 +120,5 @@ namespace APIDemo.Controllers
 
             return new NoContentResult();
         }
-
-        // Schließen der DB Verbindung mittels Dispose
-        //~CarsController()
-        //{
-        //    _ctx.Dispose();
-        //}
     }
 }
