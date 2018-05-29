@@ -141,5 +141,11 @@ namespace APIDemo.Controllers
 
             return new NoContentResult();
         }
+
+        // Schließen der DB Verbindung mittels Dispose
+        //~CarsController()
+        //{
+        //    _ctx.Dispose();
+        //}
     }
 }
