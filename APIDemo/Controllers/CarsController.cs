@@ -6,6 +6,9 @@ using Microsoft.EntityFrameworkCore;
 using APIDemo.Models;
 using Microsoft.AspNetCore.Authorization;
 using APIDemo.Services;
+using AutoMapper;
+using APIDemo.Dtos;
+using Microsoft.AspNetCore.JsonPatch;
 
 namespace APIDemo.Controllers
 {
@@ -16,6 +19,7 @@ namespace APIDemo.Controllers
     public class CarsController : Controller
     {
         private readonly ICarsRepository _repo;
+        private readonly IMapper _mapper;
         #region constructorOhneRepo
         //private readonly ApiDemoContext _ctx;
 
@@ -36,9 +40,10 @@ namespace APIDemo.Controllers
         //}
         #endregion
 
-        public CarsController(ICarsRepository repo)
+        public CarsController(ICarsRepository repo, IMapper mapper)
         {
             _repo = repo;
+            _mapper = mapper;
         }
 
         // GET: api/Cars
@@ -46,102 +51,95 @@ namespace APIDemo.Controllers
         public async Task<IActionResult> GetAllCars()
         {
             var cars = await _repo.GetAll();
-            return Ok(cars);
+
+            var carsDto = _mapper.Map<IList<CarDto>>(cars);
+
+            return Ok(carsDto);
         }
 
         // GET: api/Cars/5
-        //[HttpGet("{id}")]
-        //public async Task<IActionResult> GetCar([FromRoute] int id)
-        //{
-        //    //if (!ModelState.IsValid)
-        //    //{
-        //    //    return BadRequest(ModelState);
-        //    //}
+        [HttpGet("{id}", Name = "GetCar")]
+        public async Task<ActionResult<CarDto>> GetCarById(int id)
+        {
+            var car = await _repo.FindById(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
 
-        //    //var car = await _ctx.Cars.FindAsync(id);
+            var carDto = _mapper.Map<CarDto>(car);
 
-        //    //if (car == null)
-        //    //{
-        //    //    return NotFound();
-        //    //}
-
-        //    //return Ok(car);
-        //}
+            return carDto;
+        }
 
         // PUT: api/Cars/5
-        //[HttpPut("{id}")]
-        //public async Task<IActionResult> PutCar([FromRoute] int id, [FromBody] Car car)
-        //{
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return BadRequest(ModelState);
-        //    }
+        [HttpPut("{id}")]
+        public async Task<ActionResult> UpdateCar(int id, [FromBody] Car car)
+        {
+            if (car == null || car.Id != id)
+            {
+                return BadRequest();
+            }
+            var carToUpdate = await _repo.FindById(id);
+            if (carToUpdate == null)
+            {
+                return NotFound();
+            }
 
-        //    if (id != car.Id)
-        //    {
-        //        return BadRequest();
-        //    }
+            carToUpdate.BrandName = car.BrandName;
+            carToUpdate.ModelName = car.ModelName;
+            carToUpdate.YearOfConstruction = car.YearOfConstruction;
 
-        //    _ctx.Entry(car).State = EntityState.Modified;
+            await _repo.SaveAll();
+            return new NoContentResult();
+        }
 
-        //    try
-        //    {
-        //        await _ctx.SaveChangesAsync();
-        //    }
-        //    catch (DbUpdateConcurrencyException)
-        //    {
-        //        if (!CarExists(id))
-        //        {
-        //            return NotFound();
-        //        }
-        //        else
-        //        {
-        //            throw;
-        //        }
-        //    }
+        [HttpPatch("{id}")]
+        public async Task<ActionResult<Car>> Patch(int id, JsonPatchDocument<Car> patch)
+        {
+            var car = await _repo.FindById(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
 
-        //    return NoContent();
-        //}
+            patch.ApplyTo(car, ModelState);
+
+            if (!ModelState.IsValid)
+            {
+                return BadRequest();
+            }
+
+            await _repo.SaveAll();
+
+            return car;
+        }
 
         // POST: api/Cars
-        //[HttpPost]
-        //public async Task<IActionResult> PostCar([FromBody] Car car)
-        //{
-        //    //if (!ModelState.IsValid)
-        //    //{
-        //    //    return BadRequest(ModelState);
-        //    //}
+        [HttpPost]
+        public async Task<ActionResult<Car>> PostCar([FromBody] Car car)
+        {
+            if (car == null) return BadRequest();
 
-        //    //_ctx.Cars.Add(car);
-        //    //await _ctx.SaveChangesAsync();
+            _repo.Add(car);
+            await _repo.SaveAll();
 
-        //    //return CreatedAtAction("GetCar", new { id = car.Id }, car);
-        //}
+            return CreatedAtRoute("GetCar", new { id = car.Id }, car);
+        }
 
         // DELETE: api/Cars/5
-        //[HttpDelete("{id}")]
-        //public async Task<IActionResult> DeleteCar([FromRoute] int id)
-        //{
-        //    //if (!ModelState.IsValid)
-        //    //{
-        //    //    return BadRequest(ModelState);
-        //    //}
+        [HttpDelete("{id}")]
+        public async Task<ActionResult> DeleteCar(int id)
+        {
+            var car = await _repo.FindById(id);
+            if (car == null)
+            {
+                return NotFound();
+            }
+            _repo.Remove(car);
+            await _repo.SaveAll();
 
-        //    //var car = await _ctx.Cars.FindAsync(id);
-        //    //if (car == null)
-        //    //{
-        //    //    return NotFound();
-        //    //}
-
-        //    //_ctx.Cars.Remove(car);
-        //    //await _ctx.SaveChangesAsync();
-
-        //    //return Ok(car);
-        //}
-
-        //private bool CarExists(int id)
-        //{
-        //    return _ctx.Cars.Any(e => e.Id == id);
-        //}
+            return new NoContentResult();
+        }
     }
 }

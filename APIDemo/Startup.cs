@@ -1,5 +1,6 @@
 ﻿using APIDemo.Models;
 using APIDemo.Services;
+using AutoMapper;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -30,6 +31,9 @@ namespace APIDemo
 
             // Service Registrierung
             services.AddScoped<ICarsRepository, CarsRepository>(); // Jeder HTTP Request neue Instanz
+
+            // Automapper
+            services.AddAutoMapper();
 
             // Cors
             services.AddCors();
