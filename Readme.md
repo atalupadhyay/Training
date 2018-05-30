@@ -1,4 +1,6 @@
 # PPEDV ASP.NET Core 2.1 Training
+ASP.NET Core ist ein Cross-Platform, High-Performance, [Open-Source Framework] (https://github.com/aspnet/home). 
+Es eignet sich besonders zur Erstellung von modernen, cloudbasierten, Internetanwendungen.
 
 ### Voraussetzung:
 
@@ -8,14 +10,14 @@
 
 In der Solution finden sich Beispiele zu den Modulen 1-10:
   - Setup & Tooling
-  - Startup & Middleware (MiddlewareDemo)
-  - Einführung in MVC (RazorPagesDemo, MvcDemo)
-  - Dependency Injection (DependencyInjectionDemo)
-  - Entity Framework Core (EFDBFirstDemo, APIDemo)
-  - Schichtenarchitektur (APIDemo)
-  - REST APIs (APIDemo, APIDemo.Tests, APIDemo.ClientConsole)
-  - Security (IdentityUIDemo, APIDemo)
-  - Front-End (SignalRDemo, APIDemo.ClientWeb)
+  - Startup & Middleware
+  - Einführung in MVC
+  - Dependency Injection
+  - Entity Framework Core
+  - Schichtenarchitektur
+  - REST APIs
+  - Security
+  - Front-End
   - Hosting & Deployment
 
 ### Modul 1, Setup & Tooling
