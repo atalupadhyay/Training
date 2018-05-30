@@ -41,8 +41,8 @@ Die folgenden Anweisungen auf der Console eingeben, um ein erstes .Net Core 2.1 
 **Beispiele:** 
   - MiddlewareDemo
 
-Links:
-http://blog.ppedv.de/post/2018/05/25/wie-funktioniert-die-asp-net-core-2-1-middleware-pipeline.aspx
+**Links:** 
+[Wie funktioniert die ASP.NET Core 2.1 Middleware Pipeline?](http://blog.ppedv.de/post/2018/05/25/wie-funktioniert-die-asp-net-core-2-1-middleware-pipeline.aspx)
 
 ### Modul 3, Einführung in MVC
 **Ziel:** Verstehen des MVC Entwurfsmusters in ASP.NET Core 2.1, sowie Kennenlernen der unterschiedlichen Features des MVC Frameworks.
