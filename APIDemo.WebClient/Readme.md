@@ -9,4 +9,4 @@
 **Anleitung Teil 2, Security mit JWT Bearer Tokens:**
   1. Im wwwroot eine Index.html und eine app.js hinzufügen
   2. In der app.js wird die API Controller Methode GetAllCars() aufgerufen, die mittels [Authorize] Attribut geschützt ist.
-  3. In der Index.html befindet sich das Login Formular
+  3. In der Index.html befindet sich das Login Formular sowie die jQuery Referenz
