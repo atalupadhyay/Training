@@ -4,6 +4,7 @@ namespace DependencyInjectionDemo.Services
 {
     public class Generate : ITransient, IScoped, ISingleton
     {
+        #region Generate
         private Guid _guid;
 
         public Generate()
@@ -15,5 +16,6 @@ namespace DependencyInjectionDemo.Services
         {
             return _guid;
         }
+        #endregion
     }
 }

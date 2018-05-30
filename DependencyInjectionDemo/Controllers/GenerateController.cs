@@ -5,6 +5,7 @@ namespace DependencyInjectionDemo.Controllers
 {
     public class GenerateController : Controller
     {
+        #region GenerateController
         private readonly ITransient _transient;
         private readonly IScoped _scoped;
         private readonly ISingleton _singleton;
@@ -27,5 +28,6 @@ namespace DependencyInjectionDemo.Controllers
 
             return View();
         }
+        #endregion
     }
 }

@@ -32,10 +32,12 @@ namespace DependencyInjectionDemo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            #region DIServices
             // DI Lifetime Services
             services.AddTransient<ITransient, Generate>(); // => Request nach Type = neue Instanz
             services.AddScoped<IScoped, Generate>(); // => Jeder HTTP Request neue Instanz
             services.AddSingleton<ISingleton, Generate>(); // 1 Instanz für gesamte Lifetime der Anwendung
+            #endregion
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
