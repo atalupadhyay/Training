@@ -1,14 +1,14 @@
 using System;
 using System.Threading.Tasks;
-using Xunit;
-using Moq;
-using APIDemo.Services;
-using APIDemo.Controllers;
 using System.Collections.Generic;
-using APIDemo.Models;
-using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
+using Xunit;
+using Moq;
+using FluentAssertions;
+using APIDemo.Services;
+using APIDemo.Controllers;
+using APIDemo.Models;
 
 namespace APIDemo.Tests
 {
@@ -17,23 +17,25 @@ namespace APIDemo.Tests
         [Fact]
         public async Task GetAll_ReturnsOkResult_WithCarsRepository()
         {
-            // Arrange
+            #region Arrange
             var mockRepo = new Mock<ICarsRepository>();
 
             mockRepo.Setup(x => x.GetAll())
                 .Returns(GetCars);
+            #endregion
 
-            // Act
+            #region Act
             var ctrl = new CarsController(mockRepo.Object, null);
             var result = await ctrl.GetAllCars();
+            #endregion
 
-            // Assert
+            #region Assert
             Assert.NotNull(result);
 
             var okResult = result.Should().BeOfType<OkObjectResult>().Subject;
             var cars = okResult.Value.Should().BeAssignableTo<IEnumerable<Car>>().Subject;
             cars.Count().Should().Be(1);
-
+            #endregion
         }
 
         private async Task<IEnumerable<Car>> GetCars()
