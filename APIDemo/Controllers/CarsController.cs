@@ -13,7 +13,7 @@ namespace APIDemo.Controllers
     //[Produces("application/json")]
     [Route("api/[controller]")]
     [ApiController]
-    [Authorize(AuthenticationSchemes = "Bearer")]
+    [Authorize(AuthenticationSchemes = "Bearer", Roles = "Teacher")]
     public class CarsController : Controller
     {
         private readonly ICarsRepository _repo;

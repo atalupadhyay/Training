@@ -14,6 +14,8 @@ using Microsoft.AspNetCore.Identity;
 using AutoMapper;
 using APIDemo.Models;
 using APIDemo.Services;
+using System.Threading.Tasks;
+using System;
 
 namespace APIDemo
 {
@@ -92,7 +94,7 @@ namespace APIDemo
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+        public void Configure(IApplicationBuilder app, IHostingEnvironment env, IServiceProvider services)
         {
             if (env.IsDevelopment())
             {
@@ -123,6 +125,35 @@ namespace APIDemo
             //app.UseCors("AllowPPEDV");
 
             app.UseMvc();
+
+            //CreateUserRoles(services).Wait();
+        }
+
+        private async Task CreateUserRoles(IServiceProvider serviceProvider)
+        {
+            var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+            var UserManager = serviceProvider.GetRequiredService<UserManager<IdentityUser>>();
+
+            IdentityResult roleResult;
+            var roleCheck = await RoleManager.RoleExistsAsync("Teacher");
+            if (!roleCheck)
+            {
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Teacher"));
+            }
+
+            roleCheck = await RoleManager.RoleExistsAsync("Student");
+            if (!roleCheck)
+            {
+                roleResult = await RoleManager.CreateAsync(new IdentityRole("Student"));
+            }
+
+            var user = await UserManager.FindByEmailAsync("teacher@ppedv.de");
+            var User = new IdentityUser();
+            await UserManager.AddToRoleAsync(user, "Teacher");
+
+            user = await UserManager.FindByEmailAsync("student@ppedv.de");
+            await UserManager.AddToRoleAsync(user, "Student");
+
         }
     }
 }

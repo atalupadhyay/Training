@@ -2,6 +2,7 @@
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
@@ -13,30 +14,34 @@ namespace APIDemo.Controllers
     public class TokenController : Controller
     {
         private readonly IConfiguration _config;
+        private readonly SignInManager<IdentityUser> _signInManager;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public TokenController(IConfiguration config, UserManager<IdentityUser> userManager)
+        public TokenController(IConfiguration config, 
+            UserManager<IdentityUser> userManager,
+            SignInManager<IdentityUser> signInManager)
         {
             _config = config;
             _userManager = userManager;
+            _signInManager = signInManager;
         }
 
         [HttpPost]
         [Route("token")]
-        public IActionResult RequestToken([FromBody] LoginDto user)
+        public async Task<IActionResult> RequestToken([FromBody] LoginDto user)
         {
-            //https://stackoverflow.com/questions/42036810/asp-net-core-jwt-mapping-role-claims-to-claimsidentity
             if (ModelState.IsValid)
             {
-                var userId = GetUserIdFromLogin(user);
+                var userId = await GetUserIdFromLogin(user);
 
-                if (userId == -1) return Unauthorized();
+                if (userId == Guid.Empty) return Unauthorized();
 
                 // Claims erstellen (Key, Value Teile des Nutzers)
                 var claims = new[]
                 {
                     new Claim(JwtRegisteredClaimNames.Sub, user.Email),
-                    new Claim(JwtRegisteredClaimNames.Jti, Guid.NewGuid().ToString()),
+                    new Claim(JwtRegisteredClaimNames.Jti, userId.ToString()),
+                    new Claim(ClaimTypes.Role, "Teacher")
                 };
 
                 // Token erstellen auf Basis der Claims
@@ -63,19 +68,15 @@ namespace APIDemo.Controllers
             return BadRequest();
         }
 
-        private int GetUserIdFromLogin(LoginDto user)
+        private async Task<Guid> GetUserIdFromLogin(LoginDto user)
         {
-            var userId = -1;
+            Guid userId = Guid.Empty;
 
-            //if (user.Email.Equals("admin") && user.Password.Equals("Password1!"))
-            //{
-            //    userId = 1234;
-            //}
-
-            var userFromDb = _userManager.FindByEmailAsync(user.Email);
-            if (userFromDb != null)
+            var result = await _signInManager.PasswordSignInAsync(user.Email, user.Password, false, false);
+            if (result.Succeeded)
             {
-                userId = userFromDb.Id;
+                var userFromDb = await _userManager.FindByEmailAsync(user.Email);
+                userId = Guid.Parse(userFromDb.Id);
             }
 
             return userId;
