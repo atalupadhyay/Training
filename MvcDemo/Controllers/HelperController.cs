@@ -10,18 +10,23 @@ namespace MvcDemo.Controllers
     {
         public IActionResult Index()
         {
+            #region TempData
             TempData["Engine"] = "Please refill petrol...";
             ViewData["Message"] = "Hello from ViewData";
+            #endregion
 
+            #region UseCookies
             SetCookie("Car", "PPEDV 2018", 5);
 
             var keks = Request.Cookies["Car"];
 
             Response.Cookies.Delete("Car");
+            #endregion
 
             return View();
         }
 
+        #region Cookies
         private void SetCookie(string key, string value, int? expireTime)
         {
             var options = new CookieOptions();
@@ -35,6 +40,7 @@ namespace MvcDemo.Controllers
             }
             Response.Cookies.Append(key, value, options);
         }
+        #endregion
 
         #region Error
         public IActionResult Error()

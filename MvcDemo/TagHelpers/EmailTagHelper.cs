@@ -4,6 +4,7 @@ namespace MvcDemo.TagHelpers
 {
     public class EmailTagHelper : TagHelper
     {
+        #region EmailTagHelper
         private const string EmailDomain = "ppedv.de";
 
         public string MailTo { get; set; } = "support";
@@ -16,5 +17,6 @@ namespace MvcDemo.TagHelpers
             output.Attributes.SetAttribute("href", "mailto:" + address);
             output.Content.SetContent("Kontaktieren Sie uns!");
         }
+        #endregion
     }
 }

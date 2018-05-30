@@ -8,6 +8,7 @@ namespace MvcDemo.ViewComponents
 {
     public class CarsViewComponent : ViewComponent
     {
+        #region CarsListViewComponent
         private readonly MvcDemoContext _ctx;
 
         public CarsViewComponent(MvcDemoContext ctx)
@@ -31,5 +32,6 @@ namespace MvcDemo.ViewComponents
         {
             return View(await _ctx.Cars.ToListAsync());
         }
+        #endregion
     }
 }

@@ -41,12 +41,13 @@ namespace MvcDemo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
-
+            #region AddSession
             services.AddMvc()
                 .SetCompatibilityVersion(CompatibilityVersion.Version_2_1)
                 .AddSessionStateTempDataProvider();
 
             services.AddSession();
+            #endregion
         }
 
         public void Configure(IApplicationBuilder app, IHostingEnvironment env)
@@ -78,10 +79,11 @@ namespace MvcDemo
 
             app.UseSession();
 
-            // 1. Default Routing
+            #region DefaultRouting
             // app.UseMvcWithDefaultRoute();
+            #endregion
 
-            // 2. Conventional Routing
+            #region ConventionalRouting
             //app.UseMvc(routes => 
             //{
             //    routes.MapRoute(
@@ -101,9 +103,12 @@ namespace MvcDemo
             //        template: "{controller}/{id:alpha}/{action}",
             //        defaults: new { controller = "Cars", action = "Test" });
             //});
+            #endregion
 
-            // 3. Route in Klasse
+            #region RouteMiddleware
             app.UseCarRentalRouter();
+            #endregion
+
         }
     }
 }

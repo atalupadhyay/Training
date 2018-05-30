@@ -5,6 +5,7 @@ namespace MvcDemo.Helpers
 {
     public class MvcDemoRouter
     {
+        #region DemoRouter
         private IRouteBuilder _routes;
 
         public MvcDemoRouter(IRouteBuilder routes)
@@ -32,5 +33,6 @@ namespace MvcDemo.Helpers
                 template: "{controller}/{id:alpha}/{action}",
                 defaults: new { controller = "Cars", action = "Test" });
         }
+        #endregion
     }
 }
