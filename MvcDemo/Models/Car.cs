@@ -5,6 +5,7 @@ namespace MvcDemo.Models
 {
     public class Car
     {
+        #region CarKlasse
         public int Id { get; set; }
 
         [DisplayName("Marken Name")]
@@ -21,5 +22,6 @@ namespace MvcDemo.Models
         [DisplayName("Baujahr")]
         [Range(1900, 2018)]
         public int YearOfConstruction { get; set; }
+        #endregion
     }
 }

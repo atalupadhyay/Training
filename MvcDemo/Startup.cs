@@ -27,10 +27,12 @@ namespace MvcDemo
         public void ConfigureServices(IServiceCollection services)
         {
             // In Memory DB
+            #region InMemoryDB
             services.AddDbContext<MvcDemoContext>(options =>
             {
                 options.UseInMemoryDatabase("CarRental");
             });
+            #endregion
 
             services.Configure<CookiePolicyOptions>(options =>
             {
@@ -55,14 +57,17 @@ namespace MvcDemo
             }
             else
             {
-                // 1. General Exceptions
+                #region GeneralExceptions
                 //app.UseExceptionHandler("/Helper/Error");
+                #endregion
 
-                // 2. Status Code Pages
+                #region StatusCodePages
                 //app.UseStatusCodePages();                
+                #endregion
 
-                // 3. Custom Error Page für Statuscode
+                #region CustomErrorPageFürStatuscode
                 app.UseStatusCodePagesWithReExecute("/Helper/ErrorCustom", "?statusCode={0}");
+                #endregion
 
                 // app.UseHsts();
             }

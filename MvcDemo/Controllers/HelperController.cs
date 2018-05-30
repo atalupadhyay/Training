@@ -36,11 +36,14 @@ namespace MvcDemo.Controllers
             Response.Cookies.Append(key, value, options);
         }
 
+        #region Error
         public IActionResult Error()
         {
             return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
+        #endregion
 
+        #region ErrorCustom
         public IActionResult ErrorCustom(int? statusCode)
         {
             var error = new ErrorCustomViewModel();
@@ -50,5 +53,6 @@ namespace MvcDemo.Controllers
             }
             return View("ErrorCustom", error);
         }
+        #endregion
     }
 }

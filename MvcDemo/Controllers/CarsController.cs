@@ -8,6 +8,7 @@ namespace MvcDemo.Controllers
 {
     public class CarsController : Controller
     {
+        #region CarsConstructor
         private readonly MvcDemoContext _ctx;
 
         public CarsController(MvcDemoContext ctx)
@@ -26,12 +27,14 @@ namespace MvcDemo.Controllers
                 _ctx.SaveChanges();
             }
         }
+        #endregion
 
         // GET: Cars
         //[CustomExceptionFilter]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public async Task<IActionResult> Index()
         {
+            #region ExceptionDemo
             //try
             //{
             //throw new NullReferenceException("Computer says No!");
@@ -45,6 +48,7 @@ namespace MvcDemo.Controllers
             //{
             //    return new StatusCodeResult(500);               
             //}
+            #endregion
 
             //return View(await _ctx.Cars.ToListAsync());
 
