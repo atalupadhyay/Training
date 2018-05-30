@@ -12,8 +12,8 @@
      - teacher@ppedv.de
 	 - student@ppedv.de
   7. Auf dem HomeController auf Klassenebene das Attribut [Authorize] hinzufügen und die Anwendung testen.
-  8. **Rollen**
-  9. Im Projekt Root Verzeichnis einen Folder Helpers hinzufügen.
+  8. Die Anwendung testen.
+  9. **Benutzerrollen**: Im Projekt Root Verzeichnis einen Folder Helpers hinzufügen.
   10. Im Helpers Folder die statiche Klasse IdentityHelper mit 2 statischen Konstanten Teacher und Student hinzufügen.
   11. In der Startup.cs die Methode CreateUserRoles hinzufügen, die Methode beinhaltet die Logik der Region CreateUserRoles
   12. die Methode CreateUserRoles am Ende der Configure Methode in der Startup.cs aufrufen: CreateUserRoles(services).Wait();
