@@ -1,7 +1,7 @@
 # PPEDV ASP.NET Core 2.1 Training
 ASP.NET Core ist ein Cross-Platform, High-Performance, [Open-Source Framework](https://github.com/aspnet/home). 
 Es eignet sich besonders zur Erstellung von modernen, cloudbasierten, Internetanwendungen. 
-Dieses Training soll Sie auf den professionellen Einsatz von ASP.NET Core 2.1 im Berufsaltag vorbereiten. 
+Dieses Training soll Sie auf den professionellen Einsatz von ASP.NET Core 2.1 im Berufsalltag vorbereiten. 
 
 ### Voraussetzung:
 
