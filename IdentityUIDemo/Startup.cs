@@ -33,6 +33,7 @@ namespace IdentityUIDemo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            #region DBProviderIdentity
             // SQLServer DB Provider
             services.AddDbContext<IdentityUIDemoContext>(options =>
             {
@@ -44,6 +45,7 @@ namespace IdentityUIDemo
                 .AddEntityFrameworkStores<IdentityUIDemoContext>()
                 .AddDefaultUI()
                 .AddDefaultTokenProviders();
+            #endregion
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
@@ -79,6 +81,7 @@ namespace IdentityUIDemo
             CreateUserRoles(services).Wait();
         }
 
+        #region CreateUserRoles
         private async Task CreateUserRoles(IServiceProvider serviceProvider)
         {
             var RoleManager = serviceProvider.GetRequiredService<RoleManager<IdentityRole>>();
@@ -105,5 +108,6 @@ namespace IdentityUIDemo
             await UserManager.AddToRoleAsync(user, "Student");
 
         }
+        #endregion
     }
 }
