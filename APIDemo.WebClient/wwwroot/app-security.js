@@ -10,7 +10,6 @@
 	var saveAccessToken = function (data) {
 		console.log(data);
 		accessToken = data.token;
-		sessionStorage.setItem("accessToken", accessToken);
 	};
 
 	var login = function () {
