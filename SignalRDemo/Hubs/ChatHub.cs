@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.SignalR;
 
 namespace SignalRDemo.Hubs
 {
+    #region ChatHub
     [Authorize]
     public class ChatHub : Hub
     {
@@ -23,4 +24,5 @@ namespace SignalRDemo.Hubs
             await Clients.All.SendAsync("SendMessage", Context.User.Identity.Name, message);
         }
     }
+    #endregion
 }

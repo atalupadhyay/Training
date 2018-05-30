@@ -1,7 +1,7 @@
 ﻿### Modul 8, Security, IdentityUIDemo
 
 **Anleitung:**
-  1. Rechte Maus auf die Solution Training => Add => New Project => ASP.NET Core Web Application, No Authentication => Name: IdentityUIDemo
+  1. Rechte Maus auf die Solution Training => Add => New Project => Web Application (Model-View-Controller), No Authentication => Name: IdentityUIDemo
   2. Rechte Maus auf das Projekt IdentityUIDemo => Add => New Scaffold Item => Identity => Override all Files => + Data context class "IdentityUIDemoContext" => + User Class "ApplicationUser"
   3. Anpassen der Methode ConfigureServices in der Startup.cs, Hinzufügen der Region DBProviderIdentity
   4. In der Configure Methode die Methode app.UseAuthentication(); aufrufen.
