@@ -1,4 +1,4 @@
-﻿### Modul 8, Security
+﻿### Modul 8, Security, IdentityUIDemo
 
 **Anleitung:**
   1. Rechte Maus auf die Solution Training => Add => New Project => ASP.NET Core Web Application, No Authentication => Name: IdentityUIDemo
