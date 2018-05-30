@@ -88,7 +88,7 @@ Die folgenden Anweisungen auf der Console eingeben, um ein erstes .Net Core 2.1 
   - APIDemo
 
 ### Modul 9, Front-End
-**Ziel:** Theoretischer Überblick über die existierenden Front-End Technologien 2018, sowie Konsomieren der API mittels JavaScript.
+**Ziel:** Theoretischer Überblick über die existierenden Front-End Technologien 2018, sowie Konsumieren der API mittels JavaScript.
 Erstellung von Real-Time Webanwendungen mittels ASP.NET Core 2.1 SignalR.
 
 **Beispiele:** 
