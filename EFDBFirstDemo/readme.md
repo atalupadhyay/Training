@@ -13,4 +13,4 @@ Scaffold-DbContext "Server=(localdb)\mssqllocaldb;Database=Racing;Trusted_Connec
    - Im Models Folder im RacingContext.cs den ConnectionString ausschneiden und in der appsettings.json als DefaultConnection einbauen.
    - In der Startup.cs in der ConfigureServices Methode die Region DBProvider einfügen
    - Im Projekt Root Verzeichnis auf den Controllers Folder Rechte Maus => Add => Controller => Mvc Controller with Views, using Entity Framework
-   - **Die Anwendung testen**.
+   - Die Anwendung testen.
