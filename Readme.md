@@ -79,7 +79,7 @@ Die folgenden Anweisungen auf der Console eingeben, um ein erstes .Net Core 2.1 
 **Beispiele:** 
   - APIDemo
   - APIDemo.Tests
-  - APIDemo.ClientConsole
+  - APIDemo.ConsoleClient
 
 ### Modul 8, Security
 **Ziel:** Aufrischung Theorie Websecurity sowie Verständins für das Absichern von ASP.NET Core 2.1 Anwendungen mittels Identity Framework (Benutzern und Benutzerrollen).
@@ -93,7 +93,7 @@ Die folgenden Anweisungen auf der Console eingeben, um ein erstes .Net Core 2.1 
 Erstellung von Real-Time Webanwendungen mittels ASP.NET Core 2.1 SignalR.
 
 **Beispiele:** 
-  - APIDemo.ClientWeb
+  - APIDemo.WebClient
   - SignalRDemo
 
 ### Modul 10, Hosting & Deployment
