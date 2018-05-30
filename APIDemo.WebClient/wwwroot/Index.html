@@ -5,9 +5,21 @@
     <title></title>
 </head>
 <body>
-    <h1>Hello PPEDV APIDemo Web Client</h1>
-    <div id="api-result"></div>
+    <h3>JWT Security</h3>
 
-    <script src="apiclient.js"></script>
+    <form id="userData">
+        <input type="text" name="Email" placeholder="Email" />
+        <input type="password" name="Password" placeholder="Password" />
+        <input type="submit" id="login" value="login" />
+    </form>
+
+    <button id="getData" type="button">Get Data</button>
+
+    <pre id="output"></pre>
+
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"
+            integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+            crossorigin="anonymous"></script>
+    <script src="app-security.js"></script>
 </body>
 </html>
