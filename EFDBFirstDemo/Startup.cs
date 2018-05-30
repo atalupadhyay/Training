@@ -33,10 +33,12 @@ namespace EFDBFirstDemo
                 options.MinimumSameSitePolicy = SameSiteMode.None;
             });
 
+            #region DBProvider
             services.AddDbContext<RacingContext>(options => 
             {
                 options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"));
             });
+            #endregion
 
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
         }
