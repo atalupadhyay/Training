@@ -4,6 +4,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using APIDemo.Models;
+using APIDemo.Helpers;
 
 namespace APIDemo.Services
 {
@@ -21,15 +22,19 @@ namespace APIDemo.Services
                 {
                     BrandName = BrandNames.DMC,
                     ModelName = "Delorian",
-                    YearOfConstruction = 1985
+                    YearOfConstruction = 1985,
+                    IdentificationNumber = Guid.NewGuid()
                 });
                 _ctx.SaveChanges();
             }
         }
 
-        public async Task<IEnumerable<Car>> GetAll()
+        public async Task<IEnumerable<Car>> GetAll(ResourceParameters parameters)
         {
-            return await _ctx.Cars.ToListAsync();
+            return await _ctx.Cars
+                .Skip(parameters.PageSize * (parameters.PageNumber - 1))
+                .Take(parameters.PageSize)
+                .ToListAsync();
         }
 
         public async Task<Car> FindById(int id)

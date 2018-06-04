@@ -7,11 +7,12 @@ using AutoMapper;
 using APIDemo.Models;
 using APIDemo.Services;
 using APIDemo.Dtos;
+using APIDemo.Helpers;
 
 namespace APIDemo.Controllers
 {
     //[Produces("application/json")]
-    [Route("api/[controller]")]
+    [Route("api/v1/[controller]")]
     [ApiController]
     [Authorize(AuthenticationSchemes = "Bearer", Roles = "Teacher")]
     public class CarsController : Controller
@@ -29,7 +30,7 @@ namespace APIDemo.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAllCars()
         {
-            var cars = await _repo.GetAll();
+            var cars = await _repo.GetAll(new ResourceParameters());
 
             var carsDto = _mapper.Map<IList<CarDto>>(cars);
 
