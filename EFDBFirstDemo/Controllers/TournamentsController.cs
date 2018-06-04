@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using EFDBFirstDemo.Models;
+using EFDBFirstDemo.Helpers;
 
 namespace EFDBFirstDemo.Controllers
 {
@@ -22,6 +23,54 @@ namespace EFDBFirstDemo.Controllers
         public async Task<IActionResult> Index()
         {
             return View(await _context.Tournament.ToListAsync());
+        }
+
+        // Pageing
+        public async Task<IActionResult> Paging(
+            string sortOrder,
+            string currentFilter,
+            string searchString,
+            int? page)
+        {
+            ViewData["CurrentSort"] = sortOrder;
+            ViewData["TitleSortParm"] = String.IsNullOrEmpty(sortOrder) ? "title_desc" : "";
+            ViewData["IdSortParm"] = String.IsNullOrEmpty(sortOrder) ? "id_desc" : "";
+
+            if (searchString != null)
+            {
+                page = 1;
+            }
+            else
+            {
+                searchString = currentFilter;
+            }
+
+            ViewData["CurrentFilter"] = searchString;
+
+            var tournaments = from t in _context.Tournament
+                              select t;
+
+            if (!String.IsNullOrEmpty(searchString))
+            {
+                tournaments = tournaments.Where(s => s.Title.Contains(searchString));
+            }
+
+            switch (sortOrder)
+            {
+                case "title_desc":
+                    tournaments = tournaments.OrderByDescending(t => t.Title);
+                    break;
+                case "id_desc":
+                    tournaments = tournaments.OrderByDescending(t => t.TournamentId);
+                    break;
+                default:
+                    tournaments = tournaments.OrderBy(t => t.Title);
+                    break;
+            }
+
+            int pageSize = 3;
+            
+            return View(await PaginatedList<Tournament>.CreateAsync(tournaments.AsNoTracking(), page ?? 1, pageSize));
         }
 
         // GET: Tournaments/Details/5

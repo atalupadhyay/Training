@@ -20,7 +20,7 @@ namespace APIDemo.Tests
             #region Arrange
             var mockRepo = new Mock<ICarsRepository>();
 
-            mockRepo.Setup(x => x.GetAll())
+            mockRepo.Setup(x => x.GetAll(null))
                 .Returns(GetCars);
             #endregion
 

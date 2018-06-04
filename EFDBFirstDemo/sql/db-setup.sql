@@ -22,9 +22,30 @@ CREATE TABLE [City] (
 GO
 
 INSERT INTO [Tournament] (Title) VALUES
-('AVUS Berlin'),
-('Silverstone Circuit'),
-('Autodromo Nazionale Monza'),
+('Adelaide Street Circuit'),
+('Ain-Diab Circuit'),
+('Aintree Motor Racing Circuit'),
+('Autódromo do Estoril'),
+('Autodromo Enzo e Dino Ferrari'),
+('Autódromo Internacional Nelson Piquet'),
 ('Autódromo Internacional Nelson Piquet Rio de Janeiro'),
-('Bugatti Circuit Le Mans')
+('Autódromo Juan y Oscar Gálvez'),
+('Autodromo Nazionale Monza'),
+('AVUS'),
+('Brands Hatch'),
+('Buddh International Circuit'),
+('Bugatti Circuit Le Mans'),
+('Caesars Palace Grand Prix Circuit'),
+('Charade Circuit'),
+('Circuit Bremgarten'),
+('Circuito de Monsanto'),
+('Circuit de Nevers Magny-Cours'),
+('Circuit Mont-Tremblant'),
+('Circuit Park Zandvoort'),
+('Circuit Zolder'),
+('Circuito da Boavista'),
+('Circuito de Jerez'),
+('Circuito del Jarama'),
+('AVUS Berlin'),
+('Silverstone Circuit')
 GO
