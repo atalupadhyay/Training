@@ -26,6 +26,7 @@ namespace EFDBFirstDemo.Controllers
         }
 
         // Pageing
+        #region FilterSortPaging
         public async Task<IActionResult> Paging(
             string sortOrder,
             string currentFilter,
@@ -72,6 +73,7 @@ namespace EFDBFirstDemo.Controllers
             
             return View(await PaginatedList<Tournament>.CreateAsync(tournaments.AsNoTracking(), page ?? 1, pageSize));
         }
+        #endregion 
 
         // GET: Tournaments/Details/5
         public async Task<IActionResult> Details(int? id)

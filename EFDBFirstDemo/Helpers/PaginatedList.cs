@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace EFDBFirstDemo.Helpers
 {
+    #region PaginatedList
     public class PaginatedList<T> : List<T>
     {
         public int PageIndex { get; private set; }
@@ -42,4 +43,5 @@ namespace EFDBFirstDemo.Helpers
             return new PaginatedList<T>(items, count, pageIndex, pageSize);
         }
     }
+    #endregion
 }
