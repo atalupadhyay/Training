@@ -99,5 +99,5 @@ Erstellung von Real-Time Webanwendungen mittels ASP.NET Core 2.1 SignalR.
 ### Modul 10, Hosting & Deployment
 **Ziel:** Möglichkeiten zum Hosting & Deployment von ASP.NET Core 2.1 Apps aufzeigen.
 
-  - Anleitung Hosting ASP.NET Core 2.1. auf IIS:
+  - [Anleitung Hosting ASP.NET Core 2.1. auf IIS](http://blog.ppedv.de/post/2018/06/04/wie-kann-eine-asp-net-core-2-1-anwendung-auf-iis-gehostet-werden.aspx)
     
